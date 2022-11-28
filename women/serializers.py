@@ -9,10 +9,14 @@ from women.models import Women
 class WomenSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=255)
     content = serializers.CharField()
-    time_create = serializers.DateTimeField(read_only=False)
-    time_update = serializers.DateTimeField(read_only=False)
+    time_create = serializers.DateTimeField(required=False)
+    time_update = serializers.DateTimeField(required=False)
     is_published = serializers.BooleanField(default=True)
     category_id = serializers.IntegerField()
+
+
+    def create(self, validated_data):
+        return Women.objects.create(**validated_data)
 
 
 # class WomenSerializer(serializers.ModelSerializer):
