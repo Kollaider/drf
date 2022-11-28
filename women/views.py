@@ -14,7 +14,7 @@ from women.serializers import WomenSerializer
 class WomenAPIList(generics.ListCreateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
