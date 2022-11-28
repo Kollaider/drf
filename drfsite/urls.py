@@ -22,8 +22,9 @@ from rest_framework import routers
 
 # router = routers.SimpleRouter()
 router = routers.DefaultRouter()
-router.register(r'women', WomenViewSet)
+router.register(r'women', WomenViewSet, basename='women')  # basename is required if not queryset in Vieset
 print(router.urls)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/v1/womenlist', WomenViewSet.as_view({'get': 'list'})),
