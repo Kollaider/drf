@@ -8,6 +8,7 @@ from women.models import Women
 from women.serializers import WomenSerializer
 
 
+# class WomenViewSet(viewsets.ReadOnlyModelViewSet):
 class WomenViewSet(viewsets.ModelViewSet):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
