@@ -18,6 +18,14 @@ class WomenSerializer(serializers.Serializer):
     def create(self, validated_data):
         return Women.objects.create(**validated_data)
 
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.content = validated_data.get('content', instance.title)
+        instance.time_update = validated_data.get('time_update', instance.title)
+        instance.is_published = validated_data.get('is_published', instance.title)
+        instance.category_id = validated_data.get('category_id', instance.title)
+        instance.save()
+        return instance
 
 # class WomenSerializer(serializers.ModelSerializer):
 #
