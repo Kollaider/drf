@@ -20,9 +20,10 @@ from women.views import *
 from rest_framework import routers
 
 
-router = routers.SimpleRouter()
+# router = routers.SimpleRouter()
+router = routers.DefaultRouter()
 router.register(r'women', WomenViewSet)
-
+print(router.urls)
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api/v1/womenlist', WomenViewSet.as_view({'get': 'list'})),
